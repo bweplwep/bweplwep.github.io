@@ -4,6 +4,8 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
+  background-image: url('space-background.jpg'); /* Добавьте космический фон */
+  background-size: cover;
 }
 
 .container {
@@ -14,16 +16,18 @@ body {
 button {
   background-color: #ff9f1c;
   border: none;
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 15px 30px;
+  margin: 10px;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: #ffbf69;
+  transform: translateY(-2px);
 }
 
 h1, h2 {
@@ -46,13 +50,31 @@ h1, h2 {
   transition: width 0.3s;
 }
 
-#quests, #shop {
+#upgradesAndShop, #quests, #achievements, #leaderboard {
   margin-top: 20px;
 }
 
-.quest, .shop-item {
+.upgrade-item, .quest, .achievement, .leaderboard-entry {
   background-color: #1c1c1c;
   padding: 10px;
   margin: 5px 0;
   border-radius: 5px;
+}
+
+.quest.completed, .achievement.completed {
+  background-color: #4CAF50;
+}
+
+.quest.in-progress, .achievement.in-progress {
+  background-color: #ff9f1c;
+}
+
+@keyframes clickAnimation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+#mineButton:active {
+  animation: clickAnimation 0.1s;
 }
